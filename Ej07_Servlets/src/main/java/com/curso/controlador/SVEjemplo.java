@@ -46,7 +46,7 @@ GET /contralores/SVEjemplo
 
 */
 
-
+//Al registrar un servlet le asignamos una 'urlPattern'
 @WebServlet("/controladores/SVEjemplo")
 public class SVEjemplo implements Servlet {
 	
@@ -81,8 +81,9 @@ public class SVEjemplo implements Servlet {
 		response.setHeader("Content-type", "text/html");
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<marquee><h1><font color='lightGreen'>Prueba de aplicación web</font></h1></marquee>");
-		out.println("<body>");
+		out.println("<marquee><h1><font color='lightGreen'>Pedazo de aplicación web</font></h1></marquee>");
+		out.println("</body>");
+		out.println("</html>");
 		
 	}
 

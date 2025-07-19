@@ -1,0 +1,48 @@
+Gestor de Tareas Personal
+Objetivo: Desarrollar una aplicación web simple con Spring MVC que permita a un usuario gestionar una lista de tareas (to-do list).
+
+🧩 Funcionalidades requeridas:
+Página de inicio (/):
+Muestra un mensaje de bienvenida y un enlace para ver la lista de tareas.
+
+Listar tareas (/tareas):
+Muestra una tabla con todas las tareas registradas. Cada tarea tendrá:
+
+ID
+
+Descripción
+
+Estado (Pendiente / Completada)
+
+Agregar nueva tarea (/tareas/nueva):
+Muestra un formulario con un campo para la descripción. Al enviarlo:
+
+Se crea una nueva tarea con estado "Pendiente"
+
+Se redirige a la lista de tareas
+
+Marcar como completada (/tareas/completar/{id}):
+Permite marcar una tarea como completada usando su ID.
+
+Eliminar tarea (/tareas/eliminar/{id}):
+Elimina la tarea seleccionada.
+
+📦 Requisitos técnicos:
+Usa Spring MVC (sin Spring Boot).
+
+Usa JSP para las vistas.
+
+Los datos se pueden guardar en memoria usando una lista estática (no hace falta base de datos para este ejercicio).
+
+Debe haber una clase Tarea como modelo, con los campos necesarios.
+
+Utiliza controladores con anotaciones (@Controller, @RequestMapping, etc.).
+
+Aplica buenas prácticas MVC.
+
+✨ Extra (si quieres complicarlo un poco más):
+Permitir editar una tarea.
+
+Agregar validación al formulario (por ejemplo, que la descripción no esté vacía).
+
+Filtrar tareas por estado (mostrar solo completadas o solo pendientes).

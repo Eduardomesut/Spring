@@ -42,6 +42,8 @@ public class Main {
     //Tambien se ven las clases comparadoras que implementan Comparator
 
     //Vemos los opcionales
+
+    //Completar con lo visto en sesión 23/07/2025
 /*
     Formateador f1 = new Formateador(){
         @Override

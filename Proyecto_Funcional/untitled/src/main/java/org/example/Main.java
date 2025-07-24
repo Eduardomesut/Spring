@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -34,7 +36,22 @@ public class Main {
                 .stream()
                 .allMatch(e -> e.equals("d")));
 
+
+
+        List<String> movidas = Arrays.asList("uno", "dos", "tres", "cuatro", "cinco");
+        movidas
+                .stream()
+                .peek(System.out::println)
+                .map(s -> s.toUpperCase())
+                .forEach(System.out::println);
+
+
+
     }
+
+
+
+
 
 
     //Se ve la interfaz de comparable con el método de compareto que devuelve int

@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <!-- Poner dependencias de H2 y hacer el proyecto con programación funcional -->
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>

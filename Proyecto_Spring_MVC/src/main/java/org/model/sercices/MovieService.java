@@ -11,12 +11,12 @@ import java.util.Vector;
 public class MovieService {
     private static List<Movie> movies;
 
-    static {
-        movies = new Vector<>();
-        movies.add(new Movie(1L, "Avatar", "SCIFI", "James Cameron", "ewe", 2010, "James"));
+  //  static {
+        //movies = new Vector<>();
+        //movies.add(new Movie(1L, "Avatar", "SCIFI", "ewe", 2010, "James"));
 
 
-    }
+  //  }
 
 
 }

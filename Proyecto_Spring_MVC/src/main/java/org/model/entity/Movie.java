@@ -1,10 +1,7 @@
 package org.model.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Movie {
@@ -14,7 +11,10 @@ public class Movie {
     private Long id;
     private String name;
     private String genre;
-    private String director;
+    //Relaciones
+    @ManyToOne()
+    @JoinColumn(name = "fk_director_id", referencedColumnName = "id")
+    private Director director;
     private String description;
     private Integer year;
     private String producer;
@@ -22,11 +22,11 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(Long id, String name, String genre, String director, String description, Integer year, String producer) {
+    public Movie(Long id, String name, String genre, String description, Integer year, String producer) {
         this.id = id;
         this.name = name;
         this.genre = genre;
-        this.director = director;
+
         this.description = description;
         this.year = year;
         this.producer = producer;
@@ -56,13 +56,6 @@ public class Movie {
         this.genre = genre;
     }
 
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
-        this.director = director;
-    }
 
     public String getDescription() {
         return description;

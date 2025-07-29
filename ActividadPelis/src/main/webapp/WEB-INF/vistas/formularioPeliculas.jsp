@@ -48,7 +48,7 @@ window.onload = function(){
 	document.getElementById("btnVolver").onclick = volver
 	document.getElementById("btnVaciar").onclick = vaciar
 	document.getElementById("btnInsertar").onclick = function() { enviarFormulario("insertarPelicula") }
-	document.getElementById("btnModificar").onclick = function() { enviarFormulario("modificarPelicula") }
+	document.getElementById("btnModificar").onclick = function() { enviarFormulario("modificarPelicula/${pelicula.id}") }
 	document.getElementById("btnBorrar").onclick = function() { enviarFormulario("borrarPelicula") }
 }
 
@@ -110,6 +110,7 @@ window.onload = function(){
 
 
 	<form:form id="formulario" method="POST" modelAttribute="pelicula">
+
 	
 		<div align="center">
 			<input type="button" id="btnInsertar"  value="Insertar"  />
@@ -122,6 +123,12 @@ window.onload = function(){
 		<p/>
 		
 		<table align="center">
+			<tr>
+				<td>ID</td>
+				<td>
+					<form:input path="id" id="id"/>
+				</td>
+			</tr>
 			<tr>
 				<td>Título</td>
 				<td>

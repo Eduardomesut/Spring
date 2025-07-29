@@ -29,6 +29,20 @@ public class ServicioPeliculas {
 		peliculas.add(pelicula);
 	}
 
+	public void modificarPelicula(Pelicula pelicula){
+		System.out.println("Modificando la película con id:"+pelicula.getId());
+		List<Pelicula> nuevaLista = new Vector<>();
+		for(Pelicula p: peliculas){
+			if(p.getId() == pelicula.getId()){
+				nuevaLista.add(pelicula);
+			}else {
+				nuevaLista.add(p);
+
+			}
+		}
+		peliculas = nuevaLista;
+	}
+
 	public List<Pelicula> listarPeliculas(){
 		return peliculas;
 	}

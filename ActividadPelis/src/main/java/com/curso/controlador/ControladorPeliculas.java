@@ -42,10 +42,12 @@ public class ControladorPeliculas {
 
 	}
 
-	@PutMapping("/seleccionarPelicula/modificarPelicula/{id}")
+	@PostMapping("/seleccionarPelicula/modificarPelicula/{id}")
 	public String modificarPelicula(@ModelAttribute("pelicula") Pelicula pelicula, @PathVariable("id") Integer idPelicula) {
-		servicioPeliculas.insertarPelicula(pelicula);
-		return "redirect:listadoPeliculas";
+
+		//servicioPeliculas.insertarPelicula(pelicula);
+		servicioPeliculas.modificarPelicula(pelicula);
+		return "redirect:/mvc/listadoPeliculas";
 	}
 
 	@GetMapping(path = "/seleccionarPelicula/{id}")
@@ -61,7 +63,7 @@ public class ControladorPeliculas {
 	@PostMapping("/insertarPelicula")
 	public String insertarPelicula(@ModelAttribute("pelicula") Pelicula pelicula) {
 		servicioPeliculas.insertarPelicula(pelicula);
-		return "redirect:listadoPeliculas";
+		return "redirect:/mvc/listadoPeliculas";
 	}		
 	
 }

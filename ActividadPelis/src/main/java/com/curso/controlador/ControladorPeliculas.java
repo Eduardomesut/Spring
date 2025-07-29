@@ -4,10 +4,7 @@ import java.util.List;
 
 import com.curso.modelo.entidad.Genero;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.curso.modelo.entidad.Pelicula;
@@ -17,6 +14,11 @@ import com.curso.modelo.negocio.ServicioPeliculas;
 public class ControladorPeliculas {
 
 	private ServicioPeliculas servicioPeliculas;
+
+
+	//PROBAR ASPECTOS
+
+
 
 	public ControladorPeliculas(ServicioPeliculas servicioPeliculas) {
 		super();
@@ -40,13 +42,19 @@ public class ControladorPeliculas {
 
 	}
 
-
+	@PutMapping("/seleccionarPelicula/modificarPelicula/{id}")
+	public String modificarPelicula(@ModelAttribute("pelicula") Pelicula pelicula, @PathVariable("id") Integer idPelicula) {
+		servicioPeliculas.insertarPelicula(pelicula);
+		return "redirect:listadoPeliculas";
+	}
 
 	@GetMapping(path = "/seleccionarPelicula/{id}")
 	public ModelAndView seleccionarPelicula(@PathVariable("id") Integer idPelicula) { 
 		Pelicula pSel = servicioPeliculas.buscarPelicula(idPelicula);
 		return new ModelAndView("formularioPeliculas")
-			.addObject("pelicula", pSel);		
+			.addObject("pelicula", pSel)
+				.addObject("generos", Genero.values());
+
 	}
 
 	//Tambien podemos escribir el método así

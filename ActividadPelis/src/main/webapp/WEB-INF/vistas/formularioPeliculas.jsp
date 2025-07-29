@@ -34,6 +34,16 @@ function enviarFormulario(path){
 	formulario.submit()
 }
 
+//Hacer que puedas modificar película y borrarla
+
+
+
+
+
+
+
+
+
 window.onload = function(){
 	document.getElementById("btnVolver").onclick = volver
 	document.getElementById("btnVaciar").onclick = vaciar

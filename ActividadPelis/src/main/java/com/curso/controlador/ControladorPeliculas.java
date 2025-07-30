@@ -18,6 +18,8 @@ public class ControladorPeliculas {
 
 	//PROBAR ASPECTOS
 
+	//PROBARLO CON BASE DE DATOS H2
+
 
 
 	public ControladorPeliculas(ServicioPeliculas servicioPeliculas) {
@@ -64,7 +66,15 @@ public class ControladorPeliculas {
 	public String insertarPelicula(@ModelAttribute("pelicula") Pelicula pelicula) {
 		servicioPeliculas.insertarPelicula(pelicula);
 		return "redirect:/mvc/listadoPeliculas";
-	}		
+	}
+
+	@PostMapping("/seleccionarPelicula/borrarPelicula/{id}")
+	public String borrarPelicula(@ModelAttribute("pelicula") Pelicula pelicula, @PathVariable("id") Integer idPelicula) {
+		System.out.println("Borrando pelicula con id:"+idPelicula);
+		//servicioPeliculas.modificarPelicula(pelicula);
+		servicioPeliculas.eliminarPelicula(pelicula);
+		return "redirect:/mvc/listadoPeliculas";
+	}
 	
 }
 

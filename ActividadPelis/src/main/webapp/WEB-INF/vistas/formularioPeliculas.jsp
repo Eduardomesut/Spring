@@ -27,6 +27,9 @@ function volver(){
 
 function vaciar(){
 	document.getElementById("formulario").reset()
+
+	//HACER ESTO DE MANERA CORRECTA PARA VACIAR EL FORMULARIO
+
 }
 
 function enviarFormulario(path){
@@ -49,7 +52,7 @@ window.onload = function(){
 	document.getElementById("btnVaciar").onclick = vaciar
 	document.getElementById("btnInsertar").onclick = function() { enviarFormulario("insertarPelicula") }
 	document.getElementById("btnModificar").onclick = function() { enviarFormulario("modificarPelicula/${pelicula.id}") }
-	document.getElementById("btnBorrar").onclick = function() { enviarFormulario("borrarPelicula") }
+	document.getElementById("btnBorrar").onclick = function() { enviarFormulario("borrarPelicula/${pelicula.id}") }
 }
 
 </script>

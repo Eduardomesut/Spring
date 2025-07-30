@@ -28,6 +28,16 @@ public class ServicioPeliculas {
 		pelicula.setId(peliculas.size()+1);
 		peliculas.add(pelicula);
 	}
+	public void eliminarPelicula(Pelicula pelicula){
+		System.out.println("Eliminando la película: " + pelicula.getTitulo());
+		List<Pelicula> nuevaLista = new Vector<>();
+		for(Pelicula p: peliculas){
+			if (p.getId() != pelicula.getId() ) {
+				nuevaLista.add(p);
+			}
+		}
+		peliculas = nuevaLista;
+	}
 
 	public void modificarPelicula(Pelicula pelicula){
 		System.out.println("Modificando la película con id:"+pelicula.getId());
@@ -50,5 +60,6 @@ public class ServicioPeliculas {
 	public Pelicula buscarPelicula(Integer id){
 		return peliculas.get(id-1);
 	}
+
 
 }

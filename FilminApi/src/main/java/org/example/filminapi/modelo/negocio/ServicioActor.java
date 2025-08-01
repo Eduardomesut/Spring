@@ -5,5 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class ServicioPelicula {
+public class ServicioActor {
 }

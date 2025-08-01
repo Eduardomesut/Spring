@@ -1,4 +1,4 @@
 package org.example.filminapi.modelo.persistencia;
 
-public interface PeliculaRepositorio {
+public interface ActorRepositorio {
 }

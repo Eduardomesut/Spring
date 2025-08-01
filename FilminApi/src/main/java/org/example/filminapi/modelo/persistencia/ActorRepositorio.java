@@ -1,4 +1,9 @@
 package org.example.filminapi.modelo.persistencia;
 
-public interface ActorRepositorio {
+import org.example.filminapi.modelo.entidad.Actor;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ActorRepositorio extends JpaRepository<Actor, Long> {
+
+
 }

@@ -1,6 +1,8 @@
 package org.example.filminapi.modelo.entidad;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class Pelicula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     private String titulo;
     private String genero;
     @ManyToOne

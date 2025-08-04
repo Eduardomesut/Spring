@@ -5,6 +5,8 @@ import org.example.filminapi.modelo.entidad.Pelicula;
 import org.example.filminapi.modelo.persistencia.PeliculaRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Transactional
 public class ServicioPelicula {
@@ -27,7 +29,13 @@ public class ServicioPelicula {
         return peliculaRepositorio.findAll();
     }
     public void eliminarPelicula(Long id){
-        peliculaRepositorio.deleteById(id);
+        Optional<Pelicula> pelicula = peliculaRepositorio.findById(id);
+        if(pelicula.isPresent()){
+            peliculaRepositorio.deleteById(id);
+        }else {
+            throw new RuntimeException("La pelicula con el id: " + id + " no existe");
+        }
+
     }
     public Iterable<Pelicula> obtenerPeliculasPorNombreDirector(String nombre){
         return peliculaRepositorio.findByDirector_Nombre(nombre);

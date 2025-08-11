@@ -5,6 +5,7 @@ import org.example.filminapi.modelo.negocio.ServicioActor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,9 +22,14 @@ public class ControladorActor {
         List<Actor> actores = servicioActor.obtenerActores();
         return ResponseEntity.ok(actores);
     }
-    @GetMapping("/actores/pelicula/{nombrePelicula}")
-    public ResponseEntity<List<Actor>> obtenerActoresPorPelicula(@PathVariable String nombrePelicula){
-        List<Actor> actores = servicioActor.obtenerActoresPorPelicula(nombrePelicula);
+    @GetMapping("/actores/pelicula/{nombrePais}")
+    public ResponseEntity<List<Actor>> obtenerActoresPorPelicula(@PathVariable String pais){
+        List<Actor> actores = servicioActor.obtenerActoresPorNacionalidad(pais);
         return ResponseEntity.ok(actores);
+    }
+    @PostMapping("/actores")
+    public ResponseEntity<Actor> crearActor(@PathVariable Actor actor){
+        servicioActor.guardarActor(actor);
+        return ResponseEntity.ok(actor);
     }
 }

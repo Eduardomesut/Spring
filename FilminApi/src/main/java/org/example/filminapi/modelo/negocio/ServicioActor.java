@@ -17,10 +17,23 @@ public class ServicioActor {
         this.actorRepositorio = actorRepositorio;
 
     }
-    public List<Actor> obtenerActoresPorPelicula(@PathVariable String nombrePelicula){
-        if (!actorRepositorio.findByPeliculasNombre(nombrePelicula).isEmpty()){
+    public void guardarActor(Actor actor){
+        actorRepositorio.save(actor);
+    }
+    public Actor obtenerActorPorId(Long id){
+        return actorRepositorio.findById(id).orElse(null);
+    }
+    public Iterable<Actor> obtenerActoresPorNombre(String nombre){
+        if (!actorRepositorio.findAllByApellido(nombre).isEmpty()){
+            List<Actor>actores = actorRepositorio.findAllByApellido(nombre);
+            return actores;
+        }
+        return null;
+    }
+    public List<Actor> obtenerActoresPorNacionalidad(String pais){
+        if (!actorRepositorio.findAllByNacionalidad(pais).isEmpty()){
 
-            List<Actor>actores = actorRepositorio.findByPeliculasNombre(nombrePelicula);
+            List<Actor>actores = actorRepositorio.findAllByNacionalidad(pais);
 
             return actores;
         }

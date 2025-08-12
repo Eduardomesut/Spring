@@ -43,4 +43,8 @@ public class ServicioActor {
     public List<Actor> obtenerActores(){
         return actorRepositorio.findAll();
     }
+    public void eliminarActor(Long id){
+        actorRepositorio.deleteById(id);
+    }
+
 }

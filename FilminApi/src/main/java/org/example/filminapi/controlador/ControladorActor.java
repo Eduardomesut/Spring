@@ -3,10 +3,7 @@ package org.example.filminapi.controlador;
 import org.example.filminapi.modelo.entidad.Actor;
 import org.example.filminapi.modelo.negocio.ServicioActor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,15 @@ public class ControladorActor {
     public ResponseEntity<Actor> crearActor(@PathVariable Actor actor){
         servicioActor.guardarActor(actor);
         return ResponseEntity.ok(actor);
+    }
+    @GetMapping("/actores/{id}")
+    public ResponseEntity<Actor> obtenerActorPorId(@PathVariable Long id){
+        Actor actor = servicioActor.obtenerActorPorId(id);
+        return ResponseEntity.ok(actor);
+    }
+    @DeleteMapping("/actores/{id}")
+    public ResponseEntity<Object> eliminarActor(@PathVariable Long id){
+        servicioActor.eliminarActor(id);
+        return ResponseEntity.ok().build();
     }
 }

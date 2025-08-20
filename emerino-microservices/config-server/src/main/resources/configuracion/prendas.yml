@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  config:
+    activate:
+      on-profile: default
+  application:
+    name: prendas
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:prendasdb
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

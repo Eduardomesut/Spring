@@ -1,0 +1,11 @@
+com\hiberus\servicios\ServicioPrendas.class
+com\hiberus\config\ConfigData.class
+com\hiberus\dto\PrendaDto$PrendaDtoBuilder.class
+com\hiberus\servicios\Impl\ServicioPrendasImpl.class
+com\hiberus\controladores\ControladorPrenda.class
+com\hiberus\repositorios\RepositorioPrenda.class
+com\hiberus\modelos\Prenda.class
+com\hiberus\ApplicationPrendas.class
+com\hiberus\config\ConfigSwagger.class
+com\hiberus\dto\PrendaDto.class
+com\hiberus\modelos\Prenda$PrendaBuilder.class

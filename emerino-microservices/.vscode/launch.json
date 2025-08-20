@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApplicationPrendas<prendas>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.hiberus.ApplicationPrendas",
+            "projectName": "prendas",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

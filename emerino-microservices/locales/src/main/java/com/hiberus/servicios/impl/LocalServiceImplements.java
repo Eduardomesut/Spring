@@ -10,4 +10,9 @@ public class LocalServiceImplements implements LocalService {
 
     @Autowired
     LocalRepository localRepository;
+
+    @Override
+    public void guardarLocal() {
+        //Implementar el save
+    }
 }

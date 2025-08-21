@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="usuarios" />
         <module name="config-server" />
+        <module name="gateway-server" />
+        <module name="usuarios" />
         <module name="prendas" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config-server" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
       <module name="prendas" options="-parameters" />
       <module name="usuarios" options="-parameters" />
     </option>

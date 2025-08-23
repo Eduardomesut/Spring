@@ -17,11 +17,12 @@ public class LocalController {
     @Autowired
     LocalService localService;
 
-    //Ejemplo en blanco que hay que cambiar
+
     @GetMapping("/all")
     public ResponseEntity<List<Local>> listaLocales(){
+        List<Local> locales = localService.obtenerLocales();
 
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(locales);
     }
 
 

@@ -1,6 +1,6 @@
 server:
   port: 8082
-
+#Poner una base de datos Mysql en esta configuracuín
 spring:
   config:
     activate:

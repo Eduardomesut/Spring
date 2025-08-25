@@ -9,14 +9,15 @@ spring:
         webmvc:
           routes:
             - id: micro-usuarios
-              uri: http://localhost:8080
+              uri: http://usuarios:8080
               predicates:
                 - Path=/usuarios/**
             - id: micro-prendas
-              uri: http://localhost:8081
+              uri: http://prendas:8081
               predicates:
                 - Path=/prendas/**
             - id: micro-locales
-              uri: http://localhost:8082
+              uri: http://locales:8082
               predicates:
                 - Path=/locales/**
+#Cambiar a localhost si se quiere probar en local, sino ejecutar docker-compose

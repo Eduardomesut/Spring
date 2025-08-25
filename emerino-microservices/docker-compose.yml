@@ -1,0 +1,99 @@
+version: '3'
+
+volumes:
+  prom_data:
+
+services:
+  config-server:
+    build: ./config-server
+    ports:
+      - "8888:8888"
+
+    restart: always
+
+  locales:
+    build: ./locales
+    ports:
+      - "8082:8082"
+    depends_on:
+      - config-server
+    restart: always
+
+
+  prendas:
+    build: ./prendas
+    ports:
+      - "8081:8081"
+    depends_on:
+      - config-server
+    restart: always
+
+
+  usuarios:
+    build: ./usuarios
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+    restart: always
+
+
+
+  gateway-server:
+    build: ./gateway-server
+    ports:
+      - "9000:9000"
+    depends_on:
+      - config-server
+    restart: always
+
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    expose:
+      - 9100
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/datasources
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    ports:
+      - 9090:9090
+
+    restart: unless-stopped
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prom_data:/prometheus
+
+
+
+
+

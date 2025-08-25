@@ -2,6 +2,7 @@ version: '3'
 
 volumes:
   prom_data:
+  mysql_data:
 
 services:
   config-server:
@@ -11,14 +12,33 @@ services:
 
     restart: always
 
+#Meter base de datos MySql
   locales:
     build: ./locales
     ports:
       - "8082:8082"
     depends_on:
       - config-server
+      - mysql-db
     restart: always
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/localesdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
 
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: localesdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user123
+    ports:
+      - "3307:3306"   # expone MySQL en tu host en el puerto 3307
+    volumes:
+      - mysql_data:/var/lib/mysql
 
   prendas:
     build: ./prendas
@@ -92,6 +112,7 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus
       - prom_data:/prometheus
+
 
 
 

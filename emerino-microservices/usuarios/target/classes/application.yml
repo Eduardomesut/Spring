@@ -9,3 +9,5 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+      #Cambiar a localhost si se quiere probar en local, sino ejecutar docker-compose
